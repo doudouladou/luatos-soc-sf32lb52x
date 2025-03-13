@@ -1,0 +1,33 @@
+import os
+from building import *
+
+# Add source code
+src = Glob('*.c')
+cwd = GetCurrentDir()
+LUATOS = os.path.abspath('../../../../..') + "/LuatOS"
+
+src = src + Glob(LUATOS + "/lua/src/*.c")
+
+for root, dirs, files in os.walk(LUATOS + "/luat/modules"):
+    for file in files:
+        if file.endswith(".c") and file != "crc.c" and file != "luat_lib_crypto.c":
+            src = src + Glob(root + "/" + file)
+
+src = src + Glob(LUATOS + "/luat/vfs/*.c")
+src = src + Glob(LUATOS + "/components/printf/printf.c")
+src = src + Glob(LUATOS + "/components/lfs/*.c")
+src = src + Glob(LUATOS + "/luat/weak/*.c")
+
+
+
+CPPPATH = [cwd]
+CPPPATH = CPPPATH + [LUATOS + "/lua/include"]
+CPPPATH = CPPPATH + [LUATOS + "/luat/include"]
+CPPPATH = CPPPATH + [LUATOS + "/components/printf"]
+CPPPATH = CPPPATH + [LUATOS + "/components/lfs"]
+CPPPATH = CPPPATH + [LUATOS + "/components/i2c-tools"]
+CPPPATH = CPPPATH + [LUATOS + "/components/common"]
+
+group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')
