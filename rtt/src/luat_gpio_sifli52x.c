@@ -2,7 +2,7 @@
 #include "rtdevice.h"
 #include "luat_log.h"
 #define LUAT_LOG_TAG "gpio"
-#define MAX_GPIO 30
+#define MAX_GPIO 45
 
 int luat_gpio_irq_default(int pin, void *args);
 
@@ -73,8 +73,8 @@ int luat_gpio_setup(luat_gpio_t *gpio)
     }
     else
     {
-        rt_pin_irq_enable(pin, PIN_IRQ_DISABLE);
-        rt_pin_detach_irq(pin);
+        // rt_pin_irq_enable(pin, PIN_IRQ_DISABLE);
+        // rt_pin_detach_irq(pin);
     }
     return 0;
 }
