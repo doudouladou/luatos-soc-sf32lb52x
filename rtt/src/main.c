@@ -12,6 +12,12 @@
   */
 int main(void)
 {
+    int ret = -1;
+    // ret = rt_flash_erase(LUAT_SCRIPT_START_ADDR, LUAT_SCRIPT_SIZE);
+    if (ret != 0)
+    {
+        // return -1;
+    }
     luat_main_sifli();
     /* Infinite loop */
     while (1)

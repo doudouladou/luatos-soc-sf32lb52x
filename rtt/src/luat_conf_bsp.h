@@ -8,7 +8,7 @@
 //------------------------------------------------------
 #define LUAT_CONF_LUADB_CUSTOM_READ 1
 // 外设,按需启用, 最起码启用uart和wdt库
-// #define LUAT_USE_UART 1
+#define LUAT_USE_UART 1
 #define LUAT_USE_GPIO 1
 // #define LUAT_USE_I2C  1
 // #define LUAT_USE_SPI  1
@@ -16,7 +16,8 @@
 // #define LUAT_USE_PWM  1
 // #define LUAT_USE_WDT  1
 // #define LUAT_USE_PM  1
-// #define LUAT_USE_MCU  1
+#define LUAT_USE_MCU  1
+#define LUAT_MCU_IOMUX_CTRL 1
 // #define LUAT_USE_RTC 1
 // #define LUAT_USE_CAMERA 1
 // #define LUAT_USE_OTP 1

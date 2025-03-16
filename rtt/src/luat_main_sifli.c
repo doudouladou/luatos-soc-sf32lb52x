@@ -97,6 +97,12 @@ static const luaL_Reg loadedlibs[] = {
 #ifdef LUAT_USE_GPIO
     {"gpio",    luaopen_gpio},              // GPIO脚的操作
 #endif
+#ifdef LUAT_USE_UART
+    {"uart",    luaopen_uart},               // 串口操作
+#endif
+#ifdef LUAT_USE_MCU
+  {"mcu",     luaopen_mcu},               // MCU特有的一些操作
+#endif
   {NULL, NULL}
 };
 
