@@ -92,7 +92,7 @@ static const luaL_Reg loadedlibs[] = {
   // {"timer", luaopen_timer},           // 延时库
 //   {"pack", luaopen_pack},             // pack.pack/pack.unpack
 //   {"json", luaopen_cjson},             // json
-//   {"zbuff", luaopen_zbuff},            // 
+  {"zbuff", luaopen_zbuff},            // 
 //   {"crypto", luaopen_crypto},
 #ifdef LUAT_USE_GPIO
     {"gpio",    luaopen_gpio},              // GPIO脚的操作
@@ -102,6 +102,12 @@ static const luaL_Reg loadedlibs[] = {
 #endif
 #ifdef LUAT_USE_MCU
   {"mcu",     luaopen_mcu},               // MCU特有的一些操作
+#endif
+#ifdef LUAT_USE_NETWORK 
+    {"socket", luaopen_socket_adapter},
+#endif
+#ifdef LUAT_USE_MQTT
+  {"mqtt", luaopen_mqtt},
 #endif
   {NULL, NULL}
 };

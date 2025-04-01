@@ -15,6 +15,9 @@ PrepareEnv()
 # Add bootloader project
 AddBootLoader(SIFLI_SDK,rtconfig.CHIP)
 
+AddLCPU(SIFLI_SDK,rtconfig.CHIP,"../../src/lcpu_img.c")
+
+
 # Set default compile options
 SifliEnv()
 
@@ -28,6 +31,7 @@ env = Environment(tools = ['mingw'],
 env.PrependENVPath('PATH', rtconfig.EXEC_PATH)
 
 env.Append(CPPDEFINES=["__LUATOS__"])
+# env.Append(CPPDEFINES=["__BSP_COMMON_H__"])
 
 # Prepare building environment
 objs = PrepareBuilding(env)

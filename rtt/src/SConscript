@@ -14,10 +14,14 @@ for root, dirs, files in os.walk(LUATOS + "/luat/modules"):
             src = src + Glob(root + "/" + file)
 
 src = src + Glob(LUATOS + "/luat/vfs/*.c")
+src = src + Glob(LUATOS + "/luat/weak/*.c")
 src = src + Glob(LUATOS + "/components/printf/printf.c")
 src = src + Glob(LUATOS + "/components/lfs/*.c")
-src = src + Glob(LUATOS + "/luat/weak/*.c")
-
+src = src + Glob(LUATOS + "/components/common/*.c")
+src = src + Glob(LUATOS + "/components/network/adapter/*.c")
+src = src + Glob(LUATOS + "/components/ethernet/common/*.c")
+src = src + Glob(LUATOS + "/components/network/adapter_lwip2/*.c")
+src = src + Glob(LUATOS + "/components/network/libemqtt/*.c")
 
 
 CPPPATH = [cwd]
@@ -27,6 +31,24 @@ CPPPATH = CPPPATH + [LUATOS + "/components/printf"]
 CPPPATH = CPPPATH + [LUATOS + "/components/lfs"]
 CPPPATH = CPPPATH + [LUATOS + "/components/i2c-tools"]
 CPPPATH = CPPPATH + [LUATOS + "/components/common"]
+CPPPATH = CPPPATH + [LUATOS + "/components/network/adapter"]
+CPPPATH = CPPPATH + [LUATOS + "/components/ethernet/common"]
+CPPPATH = CPPPATH + [LUATOS + "/components/network/adapter_lwip2"]
+CPPPATH = CPPPATH + [LUATOS + "/components/network/libemqtt"]
+
+
+
+# file(GLOB ERRDUMP_FILES "${LUATOS}/components/network/errdump/*.c")
+# list(APPEND srcs ${ERRDUMP_FILES})
+# list(APPEND incs ${LUATOS}/components/network/errdump)
+
+
+# file(GLOB HTTP_FILES "${LUATOS}/components/network/libhttp/*.c")
+# list(APPEND srcs ${HTTP_FILES})
+# list(APPEND incs ${LUATOS}/components/network/libhttp)
+# file(GLOB HTTP2_FILES "${LUATOS}/components/network/http_parser/*.c")
+# list(APPEND srcs ${HTTP2_FILES})
+# list(APPEND incs ${LUATOS}/components/network/http_parser)
 
 group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)
 

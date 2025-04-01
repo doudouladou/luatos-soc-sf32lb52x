@@ -18,6 +18,11 @@
 // #define LUAT_USE_PM  1
 #define LUAT_USE_MCU  1
 #define LUAT_MCU_IOMUX_CTRL 1
+#define LUAT_USE_LWIP 1
+#define LUAT_USE_NETWORK 1
+#define LUAT_USE_DNS 1
+// #define LUAT_USE_TLS 1
+// #define LUAT_USE_SNTP 1
 // #define LUAT_USE_RTC 1
 // #define LUAT_USE_CAMERA 1
 // #define LUAT_USE_OTP 1
@@ -25,7 +30,7 @@
 // #define LUAT_USE_HMETA 1
 
 // #define LUAT_USE_IOTAUTH 1
-// #define LUAT_USE_MQTT 1
+#define LUAT_USE_MQTT 1
 // #define LUAT_USE_WEBSOCKET 1
 // #define LUAT_USE_IO_QUEUE 1
 // #define LUAT_USE_RNDIS 1

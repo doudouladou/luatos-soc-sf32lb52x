@@ -12,7 +12,7 @@
 
 
 
-#define VM_SIZE (150 * 1024)
+#define VM_SIZE (100 * 1024)
 static uint32_t *vm_heap;
 void luat_heap_init(void){
     vm_heap = rt_malloc(VM_SIZE);
